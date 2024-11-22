@@ -1,5 +1,6 @@
-I made the Recommendation system based LLM and TwoTower model.
-Input data was reduced in number of labels using dimensionality reduction and clustering before fine tuning in LLM
-LLM.py: For finetuning with LoRA and QLoRA, Knowledge Distillation
-LLM_gen.py: The synopsis data used by using this code
-Clustering.py: For clustering pre-data
+あらすじデータをそのままLLMモデルに入れてファインチューニングを行い、分類タスクを解かせても全く精度が出なかったので、Transformerモデルを用いて埋め込みベクトルに変換後、次元削減とクラスタリングを用いてラベル数を削減した。
+その後、LLMモデルを用いて新たに生成されたラベルの分類タスクを解くように学習を行った。
+推論の際に出力されたラベルの中に属するデータの中で類似度が大きい順にアニメを出力することで分類精度向上を実現した。
+
+また、出力されたアニメデータを見たユーザーにおすすめのアニメを出力するようにTwoTowerモデルを用いてアイテムベースの協調フィルタリングモデルを組み立てた。
+
